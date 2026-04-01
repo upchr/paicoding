@@ -7,8 +7,8 @@ import VueDevTools from 'vite-plugin-vue-devtools'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  // Docker Nginx 部署不需要 base 路径
-  // base: process.env.NODE_ENV === 'production' ? '/paicoding/' : '/',
+  // GitHub Pages 需要 /paicoding/，Docker Nginx 用环境变量 VITE_BASE_PATH=/ 覆盖
+  base: process.env.VITE_BASE_PATH || '/paicoding/',
   
   plugins: [
     vue(),
