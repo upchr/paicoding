@@ -1,7 +1,58 @@
 # AI 相关配置
+
+# 代理配置（用于访问 OpenAI 等）
+net:
+  proxy:
+    - ip: ${PROXY_IP:}
+      port: ${PROXY_PORT:}
+      type: ${PROXY_TYPE:SOCKS}
+
+# AI 次数限制
+ai:
+  maxNum:
+    basic: ${AI_MAX_NUM_BASIC:5}
+    wechat: ${AI_MAX_NUM_WECHAT:10}
+    star: ${AI_MAX_NUM_STAR:30}
+    starTry: ${AI_MAX_NUM_STAR_TRY:10}
+    invited: ${AI_MAX_NUM_INVITED:0.1}
+    inviteNum: ${AI_MAX_NUM_INVITE_NUM:0.2}
+    starNumber: ${AI_MAX_NUM_STAR_NUMBER:4000}
+  source:
+    - ${AI_SOURCE:CHAT_GPT_3_5}
+
+# ChatGPT 配置
+chatgpt:
+  main: ${CHATGPT_MAIN:CHAT_GPT_3_5}
+  conf:
+    CHAT_GPT_3_5:
+      keys:
+        - ${CHATGPT_3_5_KEY:}
+      proxy: ${CHATGPT_PROXY:false}
+      apiHost: ${CHATGPT_API_HOST:https://api.openai.com/}
+      timeOut: 900
+      maxToken: 3000
+    CHAT_GPT_4:
+      keys:
+        - ${CHATGPT_4_KEY:}
+      proxy: ${CHATGPT_PROXY:false}
+      apiHost: ${CHATGPT_API_HOST:https://api.openai.com/}
+      timeOut: 900
+      maxToken: 200000
+  number:
+    normal: ${CHATGPT_NUM_NORMAL:50}
+    vip: ${CHATGPT_NUM_VIP:100}
+
+# 讯飞 AI 配置
+xunfei:
+  hostUrl: ${XUNFEI_HOST_URL:https://spark-api.xf-yun.com/v1.1/chat}
+  domain: ${XUNFEI_DOMAIN:general}
+  appId: ${XUNFEI_APP_ID:}
+  apiKey: ${XUNFEI_API_KEY:}
+  apiSecret: ${XUNFEI_API_SECRET:}
+
+# 业务 AI 配置
 paicoding:
   ai:
-    # AI 服务配置
     enabled: ${AI_ENABLED:false}
     api-key: ${AI_API_KEY:}
     api-url: ${AI_API_URL:}

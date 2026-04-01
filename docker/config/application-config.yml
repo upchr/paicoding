@@ -1,5 +1,29 @@
+# 网站配置
+view:
+  site:
+    needLoginArticleReadCount: ${SITE_NEED_LOGIN_COUNT:30}
+    zsxqArticleReadCount: ${SITE_ZSXQ_READ_COUNT:20}
+    websiteName: ${SITE_NAME:技术派}
+    websiteLogoUrl: ${SITE_LOGO_URL:https://paicoding.com/img/logo.svg}
+    websiteFaviconIconUrl: ${SITE_FAVICON_URL:https://paicoding.com/img/icon.png}
+    zsxqUrl: ${SITE_ZSXQ_URL:}
+    zsxqPosterUrl: ${SITE_ZSXQ_POSTER_URL:}
+    contactMeTitle: ${SITE_CONTACT_TITLE:联系我 - 小灰飞}
+    contactMeWxQrCode: ${SITE_CONTACT_WX_QR:}
+    contactMeStarQrCode: ${SITE_CONTACT_STAR_QR:}
+    pageSize: ${SITE_PAGE_SIZE:20}
+    cdnImgStyle: ${SITE_CDN_IMG_STYLE:}
+    websiteRecord: ${SITE_RECORD:}
+    wxLoginUrl: ${SITE_WX_LOGIN_URL:}
+    host: ${SITE_HOST:http://localhost:8081}
+    welcomeInfo: ${SITE_WELCOME:欢迎来到技术派}
+    oss: ${SITE_OSS_URL:}
+
+# Knife4j 生产模式
+knife4j:
+  production: ${KNIFE4J_PRODUCTION:false}
+
 # 业务配置
 paicoding:
-  # 其他业务配置
   admin:
     user-id: ${ADMIN_USER_ID:1}
