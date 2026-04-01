@@ -7,6 +7,9 @@ import VueDevTools from 'vite-plugin-vue-devtools'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  // GitHub Pages 部署需要设置 base
+  base: process.env.NODE_ENV === 'production' ? '/paicoding/' : '/',
+  
   plugins: [
     vue(),
     vueJsx(),
