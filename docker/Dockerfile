@@ -26,5 +26,5 @@ EXPOSE 8081
 # JVM 参数优化
 ENV JAVA_OPTS="-Xms512m -Xmx1024m -XX:+UseG1GC -XX:MaxGCPauseMillis=200"
 
-# 启动应用 - 使用外部配置文件
-ENTRYPOINT ["java", "-Djava.security.egd=file:/dev/./urandom", "-Dspring.config.location=classpath:/,file:/app/config/", "-jar", "app.jar"]
+# 启动应用 - 只使用外部配置文件，不再从 classpath 加载
+ENTRYPOINT ["java", "-Djava.security.egd=file:/dev/./urandom", "-Dspring.config.location=file:/app/config/", "-jar", "app.jar"]

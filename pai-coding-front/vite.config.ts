@@ -7,8 +7,8 @@ import VueDevTools from 'vite-plugin-vue-devtools'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  // GitHub Pages 部署需要设置 base
-  base: process.env.NODE_ENV === 'production' ? '/paicoding/' : '/',
+  // Docker Nginx 部署不需要 base 路径
+  // base: process.env.NODE_ENV === 'production' ? '/paicoding/' : '/',
   
   plugins: [
     vue(),
@@ -23,18 +23,4 @@ export default defineConfig({
   optimizeDeps: {
     include: ['md-editor-v3']
   },
-  // server: {
-  //   proxy: {
-  //     '/': {
-  //       target: 'http://xuyifei.site:8081/',
-  //       changeOrigin: true,
-  //       secure: true,
-  //       rewrite: (path) => {
-  //         // const newPath = path.replace(/^\/api/, '')
-  //         // console.log('Rewritten path:', newPath)
-  //         return path
-  //       }
-  //     }
-  //   }
-  // }
 })

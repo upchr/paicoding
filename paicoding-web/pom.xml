@@ -255,14 +255,14 @@
 
     <build>
         <resources>
-            <!-- 排除 resources 目录下的所有配置文件 -->
+            <!-- 排除 resources 目录下的配置文件，但保留 xml（liquibase 需要） -->
             <resource>
                 <directory>src/main/resources</directory>
                 <excludes>
                     <exclude>**/*.yml</exclude>
                     <exclude>**/*.yaml</exclude>
                     <exclude>**/*.properties</exclude>
-                    <exclude>**/*.xml</exclude>
+                    <!-- 不排除 xml，liquibase 需要 -->
                 </excludes>
             </resource>
         </resources>
