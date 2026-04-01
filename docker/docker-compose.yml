@@ -8,13 +8,14 @@ services:
     container_name: paicoding-backend
     ports:
       - "8081:8081"
+    env_file:
+      - .env
     environment:
-      - SPRING_PROFILES_ACTIVE=prod
       - TZ=Asia/Shanghai
-      # 数据库配置
+      # 数据库配置（通过 .env 文件配置）
       - DB_HOST=${DB_HOST:-localhost}
       - DB_PORT=${DB_PORT:-3306}
-      - DB_NAME=${DB_NAME:-pai_coding_2026}
+      - DB_NAME=${DB_NAME:-pai_coding}
       - DB_USERNAME=${DB_USERNAME:-root}
       - DB_PASSWORD=${DB_PASSWORD:-123456}
       # Redis 配置

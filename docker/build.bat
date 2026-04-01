@@ -31,7 +31,8 @@ REM 清理并打包
 echo ========================================
 echo 步骤 1: Maven 打包
 echo ========================================
-call mvn clean package -DskipTests -P%ENV%
+REM 使用默认配置打包，不指定 profile
+call mvn clean package -DskipTests
 
 if %errorlevel% neq 0 (
     echo 错误: Maven 打包失败

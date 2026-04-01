@@ -8,8 +8,6 @@ server:
     min-response-size: 2KB
 
 spring:
-  profiles:
-    active: ${SPRING_PROFILES_ACTIVE:prod}
   config:
     import: application-dal.yml,application-web.yml,application-config.yml,application-image.yml,application-email.yml,application-rabbitmq.yml,application-ai.yml
   main:

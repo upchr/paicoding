@@ -32,6 +32,7 @@ docker/
 cp docker/.env.example docker/.env
 
 # 编辑 .env 文件，修改数据库密码等敏感信息
+# 注意: .env 文件不会被提交到版本控制
 ```
 
 ### 2. 构建后端 Docker 镜像

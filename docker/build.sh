@@ -29,7 +29,8 @@ echo "构建环境: $ENV"
 echo "========================================"
 echo "步骤 1: Maven 打包"
 echo "========================================"
-mvn clean package -DskipTests -P$ENV
+# 使用默认配置打包，不指定 profile
+mvn clean package -DskipTests
 
 if [ $? -ne 0 ]; then
     echo "错误: Maven 打包失败"
