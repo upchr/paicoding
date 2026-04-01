@@ -1,0 +1,47 @@
+version: '3.8'
+
+services:
+  paicoding-backend:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: paicoding-backend
+    ports:
+      - "8081:8081"
+    environment:
+      - SPRING_PROFILES_ACTIVE=prod
+      - TZ=Asia/Shanghai
+      # 数据库配置
+      - DB_HOST=${DB_HOST:-localhost}
+      - DB_PORT=${DB_PORT:-3306}
+      - DB_NAME=${DB_NAME:-pai_coding_2026}
+      - DB_USERNAME=${DB_USERNAME:-root}
+      - DB_PASSWORD=${DB_PASSWORD:-123456}
+      # Redis 配置
+      - REDIS_HOST=${REDIS_HOST:-localhost}
+      - REDIS_PORT=${REDIS_PORT:-6379}
+      - REDIS_PASSWORD=${REDIS_PASSWORD:-}
+      # JWT 密钥
+      - JWT_SECRET=${JWT_SECRET:-hello_world}
+      # Knife4j 密码
+      - KNIFE4J_PASSWORD=${KNIFE4J_PASSWORD:-123456}
+      # 安全盐
+      - SECURITY_SALT=${SECURITY_SALT:-tech_π}
+    volumes:
+      - ../logs:/app/logs
+      - ../data:/app/data
+      # 配置文件挂载（可选，用于覆盖容器内的配置）
+      - ./config:/app/config:ro
+    restart: unless-stopped
+    networks:
+      - paicoding-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8081/actuator/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+networks:
+  paicoding-network:
+    driver: bridge

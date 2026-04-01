@@ -1,0 +1,9 @@
+# Web 相关配置
+spring:
+  mvc:
+    static-path-pattern: /**
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 5MB
+      max-request-size: 10MB

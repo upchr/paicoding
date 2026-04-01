@@ -254,6 +254,18 @@
     </dependencies>
 
     <build>
+        <resources>
+            <!-- 排除 resources 目录下的所有配置文件 -->
+            <resource>
+                <directory>src/main/resources</directory>
+                <excludes>
+                    <exclude>**/*.yml</exclude>
+                    <exclude>**/*.yaml</exclude>
+                    <exclude>**/*.properties</exclude>
+                    <exclude>**/*.xml</exclude>
+                </excludes>
+            </resource>
+        </resources>
         <plugins>
             <plugin>
                 <groupId>org.codehaus.gmavenplus</groupId>
@@ -267,6 +279,21 @@
                         </goals>
                     </execution>
                 </executions>
+            </plugin>
+            <!-- Spring Boot Maven 插件，用于打包可执行的 jar 文件 -->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <mainClass>com.github.paicoding.forum.web.QuickForumApplication</mainClass>
+                    <!-- 排除配置文件 -->
+                    <excludes>
+                        <exclude>
+                            <groupId>org.springframework.boot</groupId>
+                            <artifactId>spring-boot-starter</artifactId>
+                        </exclude>
+                    </excludes>
+                </configuration>
             </plugin>
         </plugins>
     </build>

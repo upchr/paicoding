@@ -1,0 +1,5 @@
+# 业务配置
+paicoding:
+  # 其他业务配置
+  admin:
+    user-id: ${ADMIN_USER_ID:1}

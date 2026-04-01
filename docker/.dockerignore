@@ -1,0 +1,52 @@
+# Git
+.git
+.gitignore
+.gitattributes
+
+# Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+
+# IDE
+.idea/
+*.iml
+.vscode/
+*.iws
+*.ipr
+.DS_Store
+
+# 日志
+logs/
+*.log
+
+# 文档
+docs/
+answer/
+*.md
+!README.md
+
+# 脚本
+*.sh
+*.cmd
+deploy.sh
+launch.sh
+
+# 前端
+pai-coding-front/
+node_modules/
+
+# 其他
+.env
+.env.local
+.env.example
+
+# Docker 相关
+docker/.gitkeep
