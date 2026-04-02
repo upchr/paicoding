@@ -1,14 +1,16 @@
+// ============= 环境变量配置 =============
+// 从环境变量读取配置，支持不同环境部署
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || ''
+const WS_BASE_URL = import.meta.env.VITE_WS_URL || ''
+const EXCEL_PROCESS_BASE_URL = import.meta.env.VITE_EXCEL_PROCESS_URL || 'https://www.xuyifei.site:5000'
+
 // ============= 后端请求的地址 =============
 // 后端接口地址
-
-export const EXCEL_PROCESS_BASE_URL = "https://www.xuyifei.site:5000"
+export const BASE_URL = API_BASE_URL
+export const WS_URL = WS_BASE_URL
+export const EXCEL_PROCESS_URL = EXCEL_PROCESS_BASE_URL
 
 //
-export const BASE_URL = "http://localhost:8081"
-export const WS_URL = "ws://localhost:8081"
-
-
-// 获得global信息还有siteInfo信息
 export const INDEX_URL = "/index"
 
 // 用户名密码登录
@@ -96,7 +98,3 @@ export const GLOBAL_INFO_URL = "/api/global/info"
 
 // ============= 前端跳转的地址 =============
 export const WRITE_ARTICLE_URL = "/article/edit"
-
-// ============= 额外的后端工具服务地址 =============
-// excel处理地址
-export const EXCEL_PROCESS_URL = "/tools/transfer"
