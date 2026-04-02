@@ -1,8 +1,8 @@
 rabbitmq:
-  host: 127.0.0.1
-  port: 5672
-  username: admin
-  passport: admin
-  virtualhost: /
+  host: ${RABBITMQ_HOST:localhost}
+  port: ${RABBITMQ_PORT:5672}
+  username: ${RABBITMQ_USERNAME:guest}
+  passport: ${RABBITMQ_PASSWORD:guest}
+  virtualhost: ${RABBITMQ_VHOST:/}
   switch_flag: false
   pool_size: 10

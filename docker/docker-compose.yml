@@ -12,27 +12,75 @@ services:
       - .env
     environment:
       - TZ=Asia/Shanghai
-      # 数据库配置（通过 .env 文件配置）
+      # ========== 数据库配置 ==========
       - DB_HOST=${DB_HOST:-localhost}
       - DB_PORT=${DB_PORT:-3306}
-      - DB_NAME=${DB_NAME:-pai_coding}
+      - DB_NAME=${DB_NAME:-pai_coding_2026}
       - DB_USERNAME=${DB_USERNAME:-root}
       - DB_PASSWORD=${DB_PASSWORD:-123456}
-      # Redis 配置
+      # ========== Redis 配置 ==========
       - REDIS_HOST=${REDIS_HOST:-localhost}
       - REDIS_PORT=${REDIS_PORT:-6379}
       - REDIS_PASSWORD=${REDIS_PASSWORD:-}
-      # JWT 密钥
+      - REDIS_DB=${REDIS_DB:-0}
+      # ========== Elasticsearch 配置 ==========
+      - ES_URIS=${ES_URIS:-http://localhost:9200}
+      - ES_HOSTS=${ES_HOSTS:-localhost:9200}
+      - ES_USERNAME=${ES_USERNAME:-elastic}
+      - ES_PASSWORD=${ES_PASSWORD:-elastic}
+      # ========== RabbitMQ 配置 ==========
+      - RABBITMQ_HOST=${RABBITMQ_HOST:-localhost}
+      - RABBITMQ_PORT=${RABBITMQ_PORT:-5672}
+      - RABBITMQ_USERNAME=${RABBITMQ_USERNAME:-guest}
+      - RABBITMQ_PASSWORD=${RABBITMQ_PASSWORD:-guest}
+      - RABBITMQ_VHOST=${RABBITMQ_VHOST:-/pai_coding}
+      - RABBITMQ_ENABLED=${RABBITMQ_ENABLED:-false}
+      # ========== JWT 配置 ==========
       - JWT_SECRET=${JWT_SECRET:-hello_world}
-      # Knife4j 密码
+      # ========== Knife4j 配置 ==========
       - KNIFE4J_PASSWORD=${KNIFE4J_PASSWORD:-123456}
-      # 安全盐
+      - KNIFE4J_PRODUCTION=${KNIFE4J_PRODUCTION:-false}
+      - KNIFE4J_BASIC_ENABLE=${KNIFE4J_BASIC_ENABLE:-false}
+      # ========== 安全配置 ==========
       - SECURITY_SALT=${SECURITY_SALT:-tech_π}
+      - SENSITIVE_WORD_ENABLE=${SENSITIVE_WORD_ENABLE:-false}
+      # ========== 邮件配置 ==========
+      - MAIL_HOST=${MAIL_HOST:-smtp.qq.com}
+      - MAIL_PORT=${MAIL_PORT:-587}
+      - MAIL_USERNAME=${MAIL_USERNAME:-}
+      - MAIL_PASSWORD=${MAIL_PASSWORD:-}
+      - MAIL_FROM=${MAIL_FROM:-}
+      # ========== AI 配置 ==========
+      - AI_ENABLED=${AI_ENABLED:-false}
+      - CHATGPT_MAIN=${CHATGPT_MAIN:-CHAT_GPT_3_5}
+      - CHATGPT_3_5_KEY=${CHATGPT_3_5_KEY:-}
+      - CHATGPT_4_KEY=${CHATGPT_4_KEY:-}
+      - CHATGPT_PROXY=${CHATGPT_PROXY:-false}
+      - CHATGPT_API_HOST=${CHATGPT_API_HOST:-https://api.openai.com/}
+      - XUNFEI_HOST_URL=${XUNFEI_HOST_URL:-https://spark-api.xf-yun.com/v1.1/chat}
+      - XUNFEI_DOMAIN=${XUNFEI_DOMAIN:-general}
+      - XUNFEI_APP_ID=${XUNFEI_APP_ID:-}
+      - XUNFEI_API_KEY=${XUNFEI_API_KEY:-}
+      - XUNFEI_API_SECRET=${XUNFEI_API_SECRET:-}
+      # ========== 网站配置 ==========
+      - SITE_NAME=${SITE_NAME:-技术派}
+      - SITE_HOST=${SITE_HOST:-http://localhost:8081}
+      - SITE_LOGO_URL=${SITE_LOGO_URL:-}
+      - SITE_FAVICON_URL=${SITE_FAVICON_URL:-}
+      - SITE_RECORD=${SITE_RECORD:-}
+      - SITE_WELCOME=${SITE_WELCOME:-欢迎来到技术派}
+      - SITE_OSS_URL=${SITE_OSS_URL:-}
+      - SITE_PAGE_SIZE=${SITE_PAGE_SIZE:-20}
+      - SITE_NEED_LOGIN_COUNT=${SITE_NEED_LOGIN_COUNT:-30}
+      # ========== 日志配置 ==========
+      - LOG_LEVEL=${LOG_LEVEL:-info}
+      # ========== 图片上传配置 ==========
+      - IMAGE_UPLOAD_PATH=${IMAGE_UPLOAD_PATH:-/app/data/upload}
+      # ========== 管理员配置 ==========
+      - ADMIN_USER_ID=${ADMIN_USER_ID:-1}
     volumes:
       - ../logs:/app/logs
       - ../data:/app/data
-      # 配置文件挂载（可选，用于覆盖容器内的配置）
-      - ./config:/app/config:ro
     restart: unless-stopped
     networks:
       - paicoding-network

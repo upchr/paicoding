@@ -1,17 +1,17 @@
 spring:
   datasource: #单数据源
-    url: jdbc:mysql://192.168.1.180:31001/${database.name}?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://${DB_HOST:localhost}:${DB_PORT:3306}/${database.name}?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
     username: root
-    password: chr@1998
+    password: ${DB_PASSWORD}
 
   dynamic: # 动态数据源
     #    primary: master # 这个表示默认的数据源
     datasource:
       master:
         # 数据库名，从配置 database.name 中获取
-        url: jdbc:mysql://192.168.1.180:31001/${database.name}?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
+        url: jdbc:mysql://${DB_HOST:localhost}:${DB_PORT:3306}/${database.name}?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
         username: root
-        password: chr@1998
+        password: ${DB_PASSWORD}
         #        type: com.alibaba.druid.pool.DruidDataSource
         #DruidDataSource自有属性
         filters: stat
@@ -26,15 +26,15 @@ spring:
         validationQuery: select 1
       slave:
         # 数据库名，从配置 database.name 中获取
-        url: jdbc:mysql://192.168.1.180:31001/${database.name}?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
+        url: jdbc:mysql://${DB_HOST:localhost}:${DB_PORT:3306}/${database.name}?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
         username: root
-        password: chr@1998
+        password: ${DB_PASSWORD}
   data:
     redis:
-      host: 192.168.1.180
-      port: 31000 # 端口
-      database: 9 # 数据库索引
-      password: 123456
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379} # 端口
+      database: ${REDIS_DB:0} # 数据库索引
+      password: ${REDIS_PASSWORD:}
 #  redis:
 #    host: localhost
 #    port: 6379
@@ -46,9 +46,9 @@ elasticsearch:
   open: false
   # es集群名称
   clusterName: elasticsearch
-  hosts: 127.0.0.1:9200
-  userName: elastic
-  password: elastic
+  hosts: ${ES_HOSTS:127.0.0.1:9200}
+  userName: ${ES_USERNAME:elastic}
+  password: ${ES_PASSWORD:elastic}
   # es 请求方式
   scheme: http
   # es 连接超时时间

@@ -1,11 +1,11 @@
 #邮箱配置
 spring:
   mail:
-    host: smtp.163.com
-    from: xhhuiblog@163.com
+    host: ${MAIL_HOST:smtp.163.com}
+    from: ${MAIL_FROM:xhhuiblog@163.com}
     # 使用自己的发送方用户名 + 授权码填充
-    username:
-    password:
+    username: ${MAIL_USERNAME:}
+    password: ${MAIL_PASSWORD:}
     default-encoding: UTF-8
     port: 465
     properties:

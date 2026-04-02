@@ -1,6 +1,0 @@
-# 图片相关配置
-paicoding:
-  image:
-    # 图片存储配置
-    upload-path: ${IMAGE_UPLOAD_PATH:/app/data/upload}
-    max-size: 5242880

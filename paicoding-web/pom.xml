@@ -15,15 +15,15 @@
         <jmh.version>1.35</jmh.version>
         <webp-imageio.version>0.2.1</webp-imageio.version>
         <spock.version>2.1-groovy-3.0</spock.version>
-<!--        <groovy.version>3.0.12</groovy.version>-->
+        <!--        <groovy.version>3.0.12</groovy.version>-->
         <spock.mockfree.version>1.0.3</spock.mockfree.version>
     </properties>
 
     <dependencies>
-<!--        <dependency>-->
-<!--            <groupId>com.github.paicoding.forum</groupId>-->
-<!--            <artifactId>paicoding-ui</artifactId>-->
-<!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>com.github.paicoding.forum</groupId>-->
+        <!--            <artifactId>paicoding-ui</artifactId>-->
+        <!--        </dependency>-->
 
         <dependency>
             <groupId>com.github.paicoding.forum</groupId>
@@ -152,12 +152,12 @@
             <scope>provided</scope>
         </dependency>
 
-<!--        <dependency>-->
-<!--            <groupId>org.codehaus.groovy</groupId>-->
-<!--            <artifactId>groovy</artifactId>-->
-<!--            <version>${groovy.version}</version>-->
-<!--            <scope>test</scope>-->
-<!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>org.codehaus.groovy</groupId>-->
+        <!--            <artifactId>groovy</artifactId>-->
+        <!--            <version>${groovy.version}</version>-->
+        <!--            <scope>test</scope>-->
+        <!--        </dependency>-->
 
         <dependency>
             <groupId>org.apache.groovy</groupId>
@@ -254,18 +254,6 @@
     </dependencies>
 
     <build>
-        <resources>
-            <!-- 排除 resources 目录下的配置文件，但保留 xml（liquibase 需要） -->
-            <resource>
-                <directory>src/main/resources</directory>
-                <excludes>
-                    <exclude>**/*.yml</exclude>
-                    <exclude>**/*.yaml</exclude>
-                    <exclude>**/*.properties</exclude>
-                    <!-- 不排除 xml，liquibase 需要 -->
-                </excludes>
-            </resource>
-        </resources>
         <plugins>
             <plugin>
                 <groupId>org.codehaus.gmavenplus</groupId>

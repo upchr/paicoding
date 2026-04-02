@@ -13,16 +13,16 @@ chatgpt:
   conf:
     CHAT_GPT_3_5:
       keys:
-        - # 这里输入你的key
-      proxy: true # 表示走上面的代理进行访问
-      apiHost: https://api.openai.com/
+        - ${CHATGPT_3_5_KEY:}
+      proxy: ${CHATGPT_PROXY:false} # 表示走上面的代理进行访问
+      apiHost: ${CHATGPT_API_HOST:https://api.openai.com/}
       timeOut: 900
       maxToken: 3000
     CHAT_GPT_4:
       keys:
-        -
-      proxy: true
-      apiHost: https://api.openai.com/
+        - ${CHATGPT_4_KEY:}
+      proxy: ${CHATGPT_PROXY:false}
+      apiHost: ${CHATGPT_API_HOST:https://api.openai.com/}
       timeOut: 900
       maxToken: 200000
   number:
@@ -34,7 +34,8 @@ chatgpt:
 
 # 讯飞AI
 xunfei:
-  hostUrl: http://spark-api.xf-yun.com/v1.1/chat
-  appId:
-  apiKey:
-  apiSecret:
+  hostUrl: ${XUNFEI_HOST_URL:http://spark-api.xf-yun.com/v1.1/chat}
+  domain: ${XUNFEI_DOMAIN:general}
+  appId: ${XUNFEI_APP_ID:}
+  apiKey: ${XUNFEI_API_KEY:}
+  apiSecret: ${XUNFEI_API_SECRET:}

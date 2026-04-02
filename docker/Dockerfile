@@ -7,8 +7,6 @@ WORKDIR /app
 # 复制打包后的 jar 文件（从构建上下文的根目录）
 COPY paicoding-web/target/paicoding-web-0.0.1-SNAPSHOT.jar app.jar
 
-# 复制外部配置文件（从构建上下文的 docker/config 目录）
-COPY docker/config /app/config
 
 # 创建必要的目录
 RUN mkdir -p /app/logs /app/data/upload
@@ -27,4 +25,4 @@ EXPOSE 8081
 ENV JAVA_OPTS="-Xms512m -Xmx1024m -XX:+UseG1GC -XX:MaxGCPauseMillis=200"
 
 # 启动应用 - 只使用外部配置文件，不再从 classpath 加载
-ENTRYPOINT ["java", "-Djava.security.egd=file:/dev/./urandom", "-Dspring.config.location=file:/app/config/", "-jar", "app.jar"]
+ENTRYPOINT ["java", "-jar", "app.jar"]

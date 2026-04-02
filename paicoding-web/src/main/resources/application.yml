@@ -39,7 +39,7 @@ servlet:
     max-swallow-size: -1 # 解决上传图片超过2MB之后，出现连接重置的问题
 
 security:
-  salt: tech_π # 密码加盐, 更安全的做法是每个用户的密码使用独立的盐，并将其保存在用户表中
+  salt: ${SECURITY_SALT:tech_π} # 密码加盐, 更安全的做法是每个用户的密码使用独立的盐，并将其保存在用户表中
   salt-index: 3 # 盐插入的位置
 
 paicoding:
@@ -49,7 +49,7 @@ paicoding:
     allow: # 自定义的非敏感词，英文逗号分割
   jwt:
     issuer: pai_coding # 签发者
-    secret: hello_world # 签名密钥
+    secret: ${JWT_SECRET:hello_world} # 签名密钥
     expire: 2592000000 # jwt的有效期，默认30天
 
 # 默认的数据库名
@@ -82,7 +82,7 @@ knife4j:
     # basic是否开启，默认为false
     enable: true
     username: root
-    password: 123456
+    password: ${KNIFE4J_PASSWORD:123456}
   setting:
     language: zh-CN
   openapi:
